@@ -1,0 +1,94 @@
+import React, { useState } from "react";
+import axios from "axios";
+import { Bar } from "react-chartjs-2";
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
+
+// Register Chart.js components
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+
+function App() {
+  const [text, setText] = useState(""); // State for input text
+  const [sentimentData, setSentimentData] = useState(null); // State for sentiment result
+  const [loading, setLoading] = useState(false); // Loading state
+  const [error, setError] = useState(null); // Error state
+
+  // Handle sentiment analysis
+  const handleAnalyze = async () => {
+    if (!text.trim()) {
+      setError("Text is required!");
+      return;
+    }
+
+    setLoading(true); // Set loading state to true while fetching
+    setError(null); // Reset error state
+
+    try {
+      const response = await axios.post("http://localhost:5000/analyze", { text });
+      setSentimentData(response.data); // Expect sentiment, positiveProbability, and negativeProbability
+    } catch (error) {
+      console.error("Error analyzing sentiment:", error);
+      setError("An error occurred while analyzing the sentiment.");
+    } finally {
+      setLoading(false); // Set loading state to false once the request is done
+    }
+  };
+
+  // Chart data structure based on sentimentData
+  const chartData =
+    sentimentData &&
+    sentimentData.positiveProbability !== undefined &&
+    sentimentData.negativeProbability !== undefined && {
+      labels: ["Positive", "Negative"], // Labels for sentiment
+      datasets: [
+        {
+          label: "Sentiment Probabilities",
+          data: [sentimentData.positiveProbability, sentimentData.negativeProbability], // Use probabilities from API
+          backgroundColor: ["#4CAF50", "#F44336"], // Colors for positive and negative
+        },
+      ],
+    };
+
+  return (
+    <div style={{ textAlign: "center", padding: "20px", maxWidth: "600px", margin: "0 auto" }}>
+      <h1>Sentiment Analysis</h1>
+
+      {/* Textarea for user input */}
+      <textarea
+        style={{ width: "100%", marginBottom: "10px" }}
+        rows="4"
+        value={text}
+        onChange={(e) => setText(e.target.value)} // Handle text input
+        placeholder="Enter text to analyze..."
+      />
+
+      {/* Analyze button */}
+      <button
+        onClick={handleAnalyze}
+        disabled={loading}
+        style={{ padding: "10px 20px", backgroundColor: "#007bff", color: "white", border: "none" }}
+      >
+        {loading ? "Analyzing..." : "Analyze"}
+      </button>
+
+      {/* Error message */}
+      {error && <div style={{ color: "red", marginTop: "10px" }}>{error}</div>}
+
+      {/* Results */}
+      {sentimentData && !loading && (
+        <div style={{ marginTop: "20px" }}>
+          <h2>Results:</h2>
+          <p> {sentimentData.sentiment}</p>
+
+          {/* Render chart */}
+          {chartData && (
+            <div style={{ marginTop: "20px" }}>
+              <Bar data={chartData} options={{ responsive: true, maintainAspectRatio: false }} />
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default App;
