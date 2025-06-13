@@ -64,28 +64,21 @@ python sentiment_analysis.py
 
 📈 Graphs showing model performance and feature distributions
 
-🧠 Learnings
-Basics of Natural Language Processing (NLP)
+##🧠 Learnings
+-Basics of Natural Language Processing (NLP)
 
-Text preprocessing techniques
+-Text preprocessing techniques
 
-Building and evaluating ML models on text data
+-Building and evaluating ML models on text data
 
-Importance of feature extraction like BoW and TF-IDF
+-Importance of feature extraction like BoW and TF-IDF
 
-📌 To-Do
- Implement deep learning model (e.g., LSTM or BERT)
+##📌 To-Do
+ -Implement deep learning model (e.g., LSTM or BERT)
 
- Add more preprocessing techniques like stemming/lemmatization
+ -Add more preprocessing techniques like stemming/lemmatization
 
-📬 Contact
-Feel free to connect for collaboration or questions!
-
-Sarang Nettath
-📧 sarangjayagopal2004@gmail.com
-🔗 LinkedIn | GitHub
-
-📜 License
-This project is licensed under the MIT License.
+##📜 License
+-This project is licensed under the MIT License.
 
 
