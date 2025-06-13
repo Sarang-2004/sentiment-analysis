@@ -34,7 +34,7 @@ To build a machine learning model that can understand the sentiment behind movie
 - Converts text to numerical features using:
   - TF-IDF 
 - Trains models like:
-  - Logistic Regression
+  - Logistic Regression for Binary classification(Positive, Negative)
 - Evaluation using:
   - Accuracy
   - Confusion Matrix
@@ -52,10 +52,12 @@ cd sentiment-analysis
 ### 2. Install Dependencies
 ```bash
 pip install -r requirements.txt
+npm install
 ```
 ### 3. Run the Code
 ```bash
-python sentiment_analysis.py
+node index.js
+npm start
 ```
 ---
 
