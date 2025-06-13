@@ -60,6 +60,7 @@ python sentiment_analysis.py
 ---
 
 ##📊 Sample Output
+# Sentiment Analysis of Movie Reviews 🎬🧠
 ✅ Accuracy: ~85% (depends on model and preprocessing)
 
 🔍 Confusion Matrix to analyze classification
