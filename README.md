@@ -59,17 +59,16 @@ python sentiment_analysis.py
 ```
 ---
 
-##📊 Sample Output
-# Sentiment Analysis of Movie Reviews 🎬🧠
-✅ Accuracy: ~85% (depends on model and preprocessing)
+## Sample Output 🎬🧠
+ -Accuracy: ~85% (depends on model and preprocessing)
 
-🔍 Confusion Matrix to analyze classification
+ -Confusion Matrix to analyze classification
 
-📈 Graphs showing model performance and feature distributions
+ -Graphs showing model performance and feature distributions
 
 ---
 
-##🧠 Learnings
+## Learnings 🧠
 -Basics of Natural Language Processing (NLP)
 
 -Text preprocessing techniques
@@ -80,14 +79,14 @@ python sentiment_analysis.py
 
 ---
 
-##📌 To-Do
+## To-Do📌
  -Implement deep learning model (e.g., LSTM or BERT)
 
  -Add more preprocessing techniques like stemming/lemmatization
 
 ---
 
-##📜 License
+## License📜
 -This project is licensed under the MIT License.
 
 
