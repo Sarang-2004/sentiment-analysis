@@ -57,12 +57,16 @@ pip install -r requirements.txt
 ```bash
 python sentiment_analysis.py
 ```
-📊 Sample Output
+---
+
+##📊 Sample Output
 ✅ Accuracy: ~85% (depends on model and preprocessing)
 
 🔍 Confusion Matrix to analyze classification
 
 📈 Graphs showing model performance and feature distributions
+
+---
 
 ##🧠 Learnings
 -Basics of Natural Language Processing (NLP)
@@ -73,10 +77,14 @@ python sentiment_analysis.py
 
 -Importance of feature extraction like BoW and TF-IDF
 
+---
+
 ##📌 To-Do
  -Implement deep learning model (e.g., LSTM or BERT)
 
  -Add more preprocessing techniques like stemming/lemmatization
+
+---
 
 ##📜 License
 -This project is licensed under the MIT License.
